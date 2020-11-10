@@ -11,6 +11,9 @@ pipeline {
                 }
              steps {
                 echo "Building release ${RELEASE} with log level ${LOG_LEVEL}..."
+                 withCredentials([string(credentialsId: 'slack-token', variable: 'SLACK_TOKEN')]) {
+                   echo "All good"
+                }
                 }
             }
          stage('Test') {
