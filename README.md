@@ -1,3 +1,0 @@
-# DeclarativePipeline
-# BlueOcean
-# BlueOcean
