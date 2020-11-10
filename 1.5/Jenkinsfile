@@ -11,7 +11,7 @@ pipeline {
                 }
              steps {
                 echo "Building release ${RELEASE} with log level ${LOG_LEVEL}..."
-                 withCredentials([string(credentialsId: 'slack-token', variable: 'SLACK_TOKEN')]) {
+                 withCredentials([string(credentialsId: 'org.jenkinsci.plugins.plaincredentials.StringCredentials', variable: 'SLACK_TOKEN')]) {
                    echo "All good"
                 }
                 }
