@@ -14,7 +14,7 @@ pipeline {
                         echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
                     }
                 }
-                stage('linux-arm64') {
+                stage('linux-amd64') {
                     steps {
                         echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
                     }
@@ -31,6 +31,18 @@ pipeline {
                  echo "Testing release ${RELEASE}"
              }
          }
+        stage('Deploy') {
+            input {
+              message 'Deploy?'
+              ok 'Do it!'
+                parameters {
+                  string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
+                }
+            }
+            steps {
+                echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
+            }
+        }
     }
     post {
         always {
