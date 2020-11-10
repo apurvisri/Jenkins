@@ -11,12 +11,6 @@ pipeline {
                 }
              steps {
                 echo "Building release ${RELEASE} with log level ${LOG_LEVEL}..."
-                sh 'chmod +x m2/demo5/build.sh'
-                withCredentials([string(credentialsId: 'slack-token', variable: 'SLACK_TOKEN')]) {
-                    sh '''
-                       ./m2/demo5/build.sh
-                    '''
-                }
                 }
             }
          stage('Test') {
