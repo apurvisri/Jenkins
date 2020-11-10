@@ -11,7 +11,7 @@ pipeline {
                 }
              steps {
                 echo "Building release ${RELEASE} with log level ${LOG_LEVEL}..."
-                 withCredentials([string(credentialsId: 'ba239e6b-3b6a-432f-9740-9042e32c0f43', variable: 'SLACK_TOKEN')]) {
+                withCredentials( [usernamePassword( credentialsId: 'slack-token', passwordVariable: 'PASSWORD')]) {
                    echo "All good"
                 }
                 }
