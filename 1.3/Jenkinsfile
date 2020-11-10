@@ -31,6 +31,18 @@ pipeline {
                  echo "Testing release ${RELEASE}"
              }
          }
+        stage('Deploy') {
+            input {
+              message 'Deploy?'
+              ok 'Do it!'
+                parameters {
+                  string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', discription: 'Target deployment environment')
+                }
+            }
+            steps {
+                echo "Deploying release ${REEASE} to environment ${TARGET_ENVIRONMENT}"
+            }
+        }
     }
     post {
         always {
