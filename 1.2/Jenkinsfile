@@ -4,14 +4,13 @@ pipeline {
         RELEASE='20.04'
         }
      stages {
-         #BuildStage
         stage('Build') {
             agent any
             environment {
                LOG_LEVEL='INFO'
                 }
              steps {
-                echo "Building release ${RELEASE} with log level ${LOG_LEVEL}..."
+                echo "Building release ${RELEASE} with log leve ${LOG_LEVEL}..."
                 }
             }
          stage('Test') {
