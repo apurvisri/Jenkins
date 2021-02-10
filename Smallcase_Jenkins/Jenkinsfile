@@ -10,7 +10,7 @@ pipeline {
         git 'https://github.com/apurvisri/Docker.git'
       }
     }
-    stage('Building image') {
+    stage('Building') {
       steps{
         script {
           docker.build registry + ":$BUILD_NUMBER"
