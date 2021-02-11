@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/apurvisri/Docker.git'
+        (git 'https://gitlab.com/scOpenEvaluation/devops-task.git')
+        (git 'https://github.com/apurvisri/Jenkins.git')
       }
     }
     stage('Building image') {
