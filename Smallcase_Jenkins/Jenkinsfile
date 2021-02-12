@@ -13,6 +13,11 @@ pipeline {
         }
       }
     }
+   stage('Run container') {
+     steps{
+       docker.image(dockerImage).withRun('-p 8080:8080')
+     }
+    }
   }
 }
   
