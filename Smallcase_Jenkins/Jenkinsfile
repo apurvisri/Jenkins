@@ -36,6 +36,8 @@ pipeline {
     post {
       always {
             archiveArtifacts artifacts: 'builds/72/workflow/*.xml', onlyIfSuccessful: true
+      }
+    }
   }
 }
   
