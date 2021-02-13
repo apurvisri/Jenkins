@@ -33,6 +33,9 @@ pipeline {
             sh "docker rmi -f 514836819662.dkr.ecr.ap-south-1.amazonaws.com/$imagename:$BUILD_NUMBER"
       }
     }
+    post {
+      always {
+            archiveArtifacts artifacts: 'builds/72/workflow/*.xml', onlyIfSuccessful: true
   }
 }
   
