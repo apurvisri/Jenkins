@@ -1,7 +1,7 @@
 pipeline {
   environment {
     imagename = "mydockerimage"
-    registryCredential = 'ecr:ap-south-1:apurvisri'
+    registryCredential = "ecr:ap-south-1:apurvisri"
     dockerImage = ''
   }
   agent any
@@ -14,14 +14,14 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build "imagename" + ":$BUILD_NUMBER"
+          dockerImage = docker.build imagename + ":$BUILD_NUMBER"
         }
       }
     }
     stage('Deploy Image') {
       steps{
         script {
-            docker.withRegistry('https://514836819662.dkr.ecr.ap-south-1.amazonaws.com', 'registryCredential') {
+            docker.withRegistry('https://514836819662.dkr.ecr.ap-south-1.amazonaws.com', registryCredential) {
             dockerImage.push("$BUILD_NUMBER")
             dockerImage.push('latest')
           }
