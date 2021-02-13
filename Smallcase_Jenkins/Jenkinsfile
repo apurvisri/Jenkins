@@ -16,7 +16,7 @@ pipeline {
     stage('Deploy Image') {
       steps{
         script {
-            docker.withRegistry('https://514836819662.dkr.ecr.ap-south-1.amazonaws.com', 'ecr:ap-south-1:apurvisri')) {
+            docker.withRegistry('https://514836819662.dkr.ecr.ap-south-1.amazonaws.com', 'ecr:ap-south-1:apurvisri') {
             dockerImage.push("$BUILD_NUMBER")
             dockerImage.push('latest')
 }
