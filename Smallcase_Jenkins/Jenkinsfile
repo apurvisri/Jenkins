@@ -27,6 +27,12 @@ pipeline {
         }
       }
     }
+    stage('Remove Unused docker image') {
+      steps{
+            sh "docker rmi -f dockerImage:$BUILD_NUMBER"
+            sh "docker rmi -f 514836819662.dkr.ecr.ap-south-1.amazonaws.com/dockerImage:$BUILD_NUMBER"
+      }
+    }
   }
 }
   
