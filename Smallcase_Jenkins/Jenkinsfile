@@ -29,7 +29,7 @@ pipeline {
     }
     stage('Remove Unused docker image') {
       steps{
-          sh "docker rmi 514836819662.dkr.ecr.ap-south-1.amazonaws.com/imagename:($BUILD_NUMBER - 1)"
+          sh "docker rmi 514836819662.dkr.ecr.ap-south-1.amazonaws.com/imagename:$BUILD_NUMBER - 1"
       }
     }
   }
