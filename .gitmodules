@@ -1,0 +1,3 @@
+[submodule "building-a-multibranch-pipeline-project"]
+	path = building-a-multibranch-pipeline-project
+	url = https://github.com/apurvisri/Jenkins.git
